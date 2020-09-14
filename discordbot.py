@@ -69,6 +69,8 @@ async def on_message(message):
                              icon_url=message.author.avatar_url_as(format="png"))
             embed.set_footer(text=f"{message.guild.name} / {message.channel.name}",
                              icon_url=message.guild.icon_url_as(format="png"))
+            if message.attachments:
+                embed.set_image(url=message.attachments[0].url)
             # Embedインスタンスを生成、投稿者、投稿場所などの設定
 
             for channel in global_channels:
